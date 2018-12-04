@@ -44,8 +44,16 @@ describe 'Testing Nasa API' do
     expect(@nasa_feedback.is_hdurl_a_link?).to be true
   end
 
+  it "should have png within the hdurl" do
+    expect(@nasa_feedback.is_hdurl_a_jpg_file?).to be true
+  end
+
   it "should have url as a link" do
     expect(@nasa_feedback.is_url_a_link?).to be true
+  end
+
+  it "should have png within the url" do
+    expect(@nasa_feedback.is_url_a_jpg_file?).to be true
   end
 
 

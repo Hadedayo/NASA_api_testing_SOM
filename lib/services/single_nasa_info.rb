@@ -17,15 +17,19 @@ class SingleNasaService
     @nasa_information
   end
 
+  def get_nasa_data_size
+    @nasa_information.length
+  end
+
   def get_copyright_value
-    @nasa_information['copyright'].gsub(' ','')
+    @nasa_information['copyright']
   end
 
   def get_date
     @nasa_information['date']
   end
 
-  def get_explanation
+    def get_explanation
     @nasa_information['explanation']
   end
 
@@ -35,6 +39,10 @@ class SingleNasaService
 
   def is_hdurl_a_link?
     get_hdurl.include?('https://')|('http://')
+  end
+
+  def is_hdurl_a_jpg_file?
+    get_hdurl.include?('.jpg')
   end
 
   def get_media_type
@@ -57,9 +65,14 @@ class SingleNasaService
     get_url.include?('https://')|('http://')
   end
 
+  def is_url_a_jpg_file?
+    get_url.include?('.jpg')
+  end
+
+
 
 end
 
 test = SingleNasaService.new
-# puts test.get_nasa_data
-puts test.get_hdurl
+puts test.get_nasa_data
+puts test.get_date
